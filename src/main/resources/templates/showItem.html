@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>item</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> ID </th>
+        <th> Name </th>
+        <th> Price </th>
+    </tr>
+    </thead>
+    <tbody>
+        <td><span th:text="${item.id}"> Id </span></td>
+        <td><span th:text="${item.name}"> Name </span></td>
+        <td><span th:text="${item.price}"> Price </span></td>
+        <td><form action="#" th:action="@{/delete(id=${item.id})}"th:object="${Item}" method="post">
+            <p><input type="submit" value="Delete" /></p>
+        </form></td>
+        <td><form action="#" th:action="@{/update(id=${item.id})}"th:object="${Item}" method="post">
+            <p><input type="submit" value="Update" /></p>
+        </form></td>
+    </tbody>
+</table>
+<a href="/">Return</a>
+</body>
+</html>

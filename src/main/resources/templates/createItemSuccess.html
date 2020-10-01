@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Item created</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Item created:</h1>
+<p th:text="'id: ' + ${item.id}" />
+<p th:text="'content: ' + ${item.name}" />
+<p th:text="'content: ' + ${item.price}" />
+<a href="/newItem">Create another Item</a> <br>
+<a href="/">Return</a>
+</body>
+</html>
