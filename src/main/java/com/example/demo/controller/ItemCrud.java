@@ -10,13 +10,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.swing.text.html.Option;
+
 import java.util.Optional;
 
 @Controller
 public class ItemCrud {
     @Autowired
     ItemService service;
+
+    Item tempItem;
 
     @GetMapping("/newItem")
     public String createItem(Model model) {
@@ -49,6 +51,7 @@ public class ItemCrud {
         Optional<Item> optional = service.getById(item.getId());
         if (optional.isPresent()) {
             model.addAttribute("item", optional.get());
+            tempItem = optional.get();
             return "/showItem";
         } else {
             return "/noItemFound";
@@ -62,15 +65,16 @@ public class ItemCrud {
     }
 
     @GetMapping("/update") //FIXME
-    public String updateItem(@RequestParam int id , Model model) {
-        model.addAttribute("item", new Item());
+    public String updateItem(Model model) {
+        model.addAttribute("item", tempItem);
         return "update";
     }
 
     @PostMapping("/update") //FIXME
-    public String performUpdate(@RequestParam int id, @ModelAttribute Item item, Model model) {
-        model.addAttribute("item", item);
-        service.update(item, id);
+    public String performUpdate(@ModelAttribute Item item, Model model) {
+        System.out.println(item);
+        item.setId(tempItem.getId());
+        service.saveItem(item);
         return "updated";
     }
 

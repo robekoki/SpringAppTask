@@ -34,9 +34,4 @@ public class ItemService {
         repo.deleteById(id);
     }
 
-    public void update(Item item, int id) {
-        repo.update(item.getName(), item.getPrice(), id);
-    }
-
-
 }
