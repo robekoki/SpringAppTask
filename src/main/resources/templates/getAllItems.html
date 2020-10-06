@@ -21,12 +21,12 @@
         <td><span th:text="${item.id}"> Id </span></td>
         <td><span th:text="${item.name}"> Name </span></td>
         <td><span th:text="${item.price}"> Price </span></td>
-        <td><form action="#" th:action="@{/delete(id=${item.id})}"th:object="${Item}" method="post">
+        <td><form action="#" th:action="@{/items/delete(id=${item.id})}"th:object="${Item}" method="post">
             <p><input type="submit" value="Delete" /></p>
         </form></td>
     </tr>
     </tbody>
 </table>
-<a href="/">Return</a>
+<a href="/items">Return</a>
 </body>
 </html>

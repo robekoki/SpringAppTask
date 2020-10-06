@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Project created</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Project created:</h1>
+<p th:text="'id: ' + ${project.id}"></p>
+<p th:text="'content: ' + ${project.name}"></p>
+<p th:text="'content: ' + ${project.startDate}"></p>
+<p th:text=" ${project.manager != null} ? ${project.manager} : 'Manager not assigned!'">
+<a href="/project/newProject">Create another Project</a> <br>
+<a href="/items">Return</a>
+</body>
+</html>

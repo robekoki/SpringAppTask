@@ -17,10 +17,10 @@
         <td><span th:text="${item.id}"> Id </span></td>
         <td><span th:text="${item.name}"> Name </span></td>
         <td><span th:text="${item.price}"> Price </span></td>
-        <td><form action="#" th:action="@{/delete(id=${item.id})}"th:object="${Item}" method="post">
+        <td><form action="#" th:action="@{/items/delete(id=${item.id})}"th:object="${Item}" method="post">
             <p><input type="submit" value="Delete" /></p>
         </form></td>
-        <td><form action="#" th:action="@{/update}"th:object="${Item}" method="get">
+        <td><form action="#" th:action="@{/items/update}"th:object="${Item}" method="get">
             <p><input type="submit" value="Update" /></p>
         </form></td>
     </tbody>

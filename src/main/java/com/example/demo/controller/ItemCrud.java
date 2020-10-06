@@ -19,14 +19,19 @@ public class ItemCrud {
     ItemService service;
 
     Item tempItem;
+    @GetMapping("/items")
+    public String item(){
+        return "items";
+    }
 
-    @GetMapping("/newItem")
+    @GetMapping("/items/newItem")
     public String createItem(Model model) {
+        System.out.println("lol");
         model.addAttribute("Item", new Item());
         return "newItem";
     }
 
-    @PostMapping("/createItem")
+    @PostMapping("/items/createItem")
     public String itemSubmit(@ModelAttribute Item item, Model model) {
         model.addAttribute("item", item);
         service.saveItem(item);
@@ -34,19 +39,19 @@ public class ItemCrud {
 
     }
 
-    @GetMapping("/getAllItems")
+    @GetMapping("/items/getAllItems")
     public String getAll(Model model) {
         model.addAttribute("items", service.getAllItems());
         return "getAllItems";
     }
 
-    @GetMapping("/getItem")
+    @GetMapping("/items/getItem")
     public String getItem(Model model) {
         model.addAttribute("item", new Item());
         return "/getItem";
     }
 
-    @PostMapping("/getItem")
+    @PostMapping("/items/getItem")
     public String showItem(Item item, Model model) {
         Optional<Item> optional = service.getById(item.getId());
         if (optional.isPresent()) {
@@ -58,19 +63,19 @@ public class ItemCrud {
         }
     }
 
-    @PostMapping("/delete")
+    @PostMapping("/items/delete")
     public String deleteItem(@RequestParam int id, Model model) {
         service.delete(id);
         return "delete";
     }
 
-    @GetMapping("/update") //FIXME
+    @GetMapping("/items/update")
     public String updateItem(Model model) {
         model.addAttribute("item", tempItem);
         return "update";
     }
 
-    @PostMapping("/update") //FIXME
+    @PostMapping("/items/update")
     public String performUpdate(@ModelAttribute Item item, Model model) {
         System.out.println(item);
         item.setId(tempItem.getId());

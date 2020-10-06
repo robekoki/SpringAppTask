@@ -6,10 +6,10 @@
 </head>
 <body>
 <h1>Form</h1>
-<form action="#" th:action="@{/getItem}" th:object="${item}" method="post">
+<form action="#" th:action="@{/items/getItem}" th:object="${item}" method="post">
     <p>Id: <input type="number" required th:field="*{id}" /></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
-<a href="/">Return</a>
+<a href="/items">Return</a>
 </body>
 </html>
