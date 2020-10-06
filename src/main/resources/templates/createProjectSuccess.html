@@ -6,11 +6,11 @@
 </head>
 <body>
 <h1>Project created:</h1>
-<p th:text="'id: ' + ${project.id}"></p>
-<p th:text="'content: ' + ${project.name}"></p>
-<p th:text="'content: ' + ${project.startDate}"></p>
-<p th:text=" ${project.manager != null} ? ${project.manager} : 'Manager not assigned!'">
-<a href="/project/newProject">Create another Project</a> <br>
-<a href="/items">Return</a>
+<p th:text="'Id: ' + ${project.projectId}">
+<p th:text="'Project Name: ' + ${project.name}">
+<p th:text="'Project start date: ' + ${#dates.format(project.startDate, 'dd-MMM-yyyy')}">
+<p th:text="'Manager: ' + ${project.manager != null} ? ${project.manager} : 'Manager not assigned!'"><br>
+<p><a href="/project/newProject">Create another Project</a></p>
+<p><a href="/project/">Return</a></p>
 </body>
 </html>
