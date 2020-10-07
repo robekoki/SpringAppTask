@@ -32,7 +32,7 @@ public class ProjectCrud {
     @PostMapping("/projects/newProject")
     public String projectSubmit(@ModelAttribute Project project, Model model) {
         model.addAttribute("project", project);
-        if(project.getManager().getId() == 1) {
+        if(project.getManager().getId() == 0) {
             project.setManager(null);
         }
         service.save(project);

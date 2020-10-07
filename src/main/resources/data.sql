@@ -1,0 +1,1 @@
+insert into manager (id, name, surname) values (0, 'Select', 'later');
