@@ -39,19 +39,6 @@ public class ProjectCrud {
         return "createProjectSuccess";
     }
 
-    @GetMapping("/projects/newManager")
-    public String createManager(Model model) {
-        model.addAttribute("manager", new Manager());
-        return "newManager";
-    }
-
-    @PostMapping("/projects/newManager")
-    public String managerSubmit(@ModelAttribute Manager manager, Model model) {
-        model.addAttribute("manager", manager);
-        service.save(manager);
-        return "createManagerSuccess";
-    }
-
     @GetMapping("/projects/showAllProjects")
     public String showAllProjects(Model model) {
         model.addAttribute("projects", service.getAllProjects());
