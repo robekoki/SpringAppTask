@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Create Item</title>
+    <title>Create Project</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
@@ -9,8 +9,14 @@
 <form action="#" th:action="@{/projects/newProject}" th:object="${project}" method="post">
     <p>Name: <input type="text" required th:field="*{name}" /></p>
     <p>Date: <input type="date" required th:field="*{startDate}" /></p>
+    <p>Manager: <select th:field="*{manager}">
+        <option th:each="manager : ${managers}"
+                th:value = "${manager.id}"
+                th:text="(${manager.name} + ' ' + ${manager.surname})">
+        </option>
+    </select></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
-<a href="/">Return</a>
+<a href="/projects">Return</a>
 </body>
 </html>

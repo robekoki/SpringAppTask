@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-
+import com.example.demo.model.Manager;
 import com.example.demo.model.Project;
 import com.example.demo.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
 
 @Controller
 public class ProjectCrud {
@@ -24,13 +25,30 @@ public class ProjectCrud {
     @GetMapping("/projects/newProject")
     public String createProject(Model model) {
         model.addAttribute("project", new Project());
+        model.addAttribute("managers", service.getAvailableManagers());
         return "newProject";
     }
 
     @PostMapping("/projects/newProject")
     public String projectSubmit(@ModelAttribute Project project, Model model) {
         model.addAttribute("project", project);
-        service.saveProject(project);
+        if(project.getManager().getId() == 1) {
+            project.setManager(null);
+        }
+        service.save(project);
         return "createProjectSuccess";
+    }
+
+    @GetMapping("/projects/newManager")
+    public String createManager(Model model) {
+        model.addAttribute("manager", new Manager());
+        return "newManager";
+    }
+
+    @PostMapping("/projects/newManager")
+    public String managerSubmit(@ModelAttribute Manager manager, Model model) {
+        model.addAttribute("manager", manager);
+        service.save(manager);
+        return "createManagerSuccess";
     }
 }

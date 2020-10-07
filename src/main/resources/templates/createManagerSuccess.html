@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Manager created</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Project created:</h1>
+<p th:text="'Id: ' + ${manager.id}">
+<p th:text="'Name: ' + ${manager.name}">
+<p th:text="'Surname: ' + ${manager.surname}">
+<p th:text="'Phone number: ' + (${manager.phoneNumber})">
+<p><a href="/projects/newManager">Add another Manager</a></p>
+<p><a href="/projects/">Return</a></p>
+</body>
+</html>

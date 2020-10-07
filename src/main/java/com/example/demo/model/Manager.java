@@ -60,6 +60,23 @@ public class Manager {
         this.project = project;
     }
 
+    public Manager(String name, String surname, String phoneNumber) {
+        this.name = name;
+        this.surname = surname;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Manager() {
+
+    }
+
+    public static Manager getEmptyManager() {
+        Manager empty = new Manager();
+        empty.setName("Select later");
+        empty.setSurname("");
+        return empty;
+    }
+
     @Override
     public String toString() {
         return "Manager{" +

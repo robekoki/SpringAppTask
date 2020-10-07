@@ -9,8 +9,8 @@
 <p th:text="'Id: ' + ${project.projectId}">
 <p th:text="'Project Name: ' + ${project.name}">
 <p th:text="'Project start date: ' + ${#dates.format(project.startDate, 'dd-MMM-yyyy')}">
-<p th:text="'Manager: ' + ${project.manager != null} ? ${project.manager} : 'Manager not assigned!'"><br>
-<p><a href="/project/newProject">Create another Project</a></p>
-<p><a href="/project/">Return</a></p>
+<p th:text="'Manager: ' + (${project.manager != null} ? ${project.manager} : 'Manager not assigned!' )">
+<p><a href="/projects/newProject">Create another Project</a></p>
+<p><a href="/projects/">Return</a></p>
 </body>
 </html>
