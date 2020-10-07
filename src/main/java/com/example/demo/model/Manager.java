@@ -2,7 +2,6 @@ package com.example.demo.model;
 
 import javax.persistence.*;
 
-
 @Table
 @Entity
 public class Manager {
@@ -70,19 +69,8 @@ public class Manager {
 
     }
 
-    public static Manager getEmptyManager() {
-        Manager empty = new Manager();
-        empty.setName("Select later");
-        empty.setSurname("");
-        return empty;
-    }
-
     @Override
     public String toString() {
-        return "Manager{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                '}';
+        return String.format("%s %s, Phone number: %s",name, surname, phoneNumber);
     }
 }

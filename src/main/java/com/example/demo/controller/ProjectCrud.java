@@ -51,4 +51,10 @@ public class ProjectCrud {
         service.save(manager);
         return "createManagerSuccess";
     }
+
+    @GetMapping("/projects/showAllProjects")
+    public String showAllProjects(Model model) {
+        model.addAttribute("projects", service.getAllProjects());
+        return "showAllProjects";
+    }
 }
