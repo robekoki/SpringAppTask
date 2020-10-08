@@ -27,4 +27,10 @@ public class ManagerCrud {
         service.save(manager);
         return "createManagerSuccess";
     }
+
+    @GetMapping("/projects/showAllManagers")
+    public String showAllManagers(Model model) {
+        model.addAttribute("managers", service.getAllManagers());
+        return "showAllManagers";
+    }
 }

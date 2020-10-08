@@ -7,7 +7,9 @@ import com.example.demo.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -36,5 +38,21 @@ public class ProjectService {
 
     public List<Project> getAllProjects() {
         return (List<Project>) projectRepo.findAll();
+    }
+
+    public List<Manager> getAllManagers() {
+        List<Manager> list = (List<Manager>) managerRepo.findAll();
+        list.remove(0);
+        return list;
+    }
+
+    public Optional<Project> getById(int projectId) {
+        return projectRepo.findById(projectId);
+    }
+
+    public void delete(int id) {
+        Optional<Project> project = projectRepo.findById(id);
+        project.ifPresent(value -> value.setManager(null));
+        projectRepo.deleteById(id);
     }
 }

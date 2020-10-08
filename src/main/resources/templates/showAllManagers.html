@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All projects</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> ID </th>
+        <th> Name </th>
+        <th> Surname </th>
+        <th> Phone number </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${managers.empty}">
+        <td colspan="4"> No Managers </td>
+    </tr>
+    <tr th:each="manager : ${managers}">
+        <td><span th:text="${manager.id}"> Id </span></td>
+        <td><span th:text="${manager.name}"> Name </span></td>
+        <td><span th:text="${manager.surname}"> Surname </span></td>
+        <td><span th:text="${manager.phoneNumber}"> Phone Number </span></td>
+        </form></td>
+    </tr>
+    </tbody>
+</table>
+<a href="/projects">Return</a>
+</body>
+</html>

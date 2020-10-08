@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>item</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> ID </th>
+        <th> Name </th>
+        <th> Start Date </th>
+        <th> Manager</th>
+    </tr>
+    </thead>
+    <tbody>
+    <td><span th:text="${project.projectId}"> Id </span></td>
+    <td><span th:text="${project.name}"> Name </span></td>
+    <td><span th:text="${#dates.format(project.startDate, 'dd-MMM-yyyy')}"> Start date </span></td>
+    <td><span th:text="${project.manager != null} ? ${project.manager} : 'Manager not assigned!'"> Manager </span></td>
+    <td><form action="#" th:action="@{/projects/deleteProject(id=${project.projectId})}"th:object="${project}" method="post">
+        <p><input type="submit" value="Delete" /></p>
+    </form></td>
+    <td><form action="#" th:action="@{/projects/updateProject}"th:object="${project}" method="get">
+        <p><input type="submit" value="Update" /></p>
+    </form></td>
+    </tbody>
+</table>
+<a href="/projects">Return</a>
+</body>
+</html>
