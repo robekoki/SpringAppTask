@@ -23,6 +23,12 @@
         <td><span th:text="${project.name}"> Name </span></td>
         <td><span th:text="${#dates.format(project.startDate, 'dd-MMM-yyyy')}"> Start date </span></td>
         <td><span th:text="${project.manager != null} ? ${project.manager} : 'Manager not assigned!'"> Manager </span></td>
+        <td><form action="#" th:action="@{/projects/updateProject(id=${project.projectId})}"th:object="${project}" method="post">
+            <p><input type="submit" value="Update" /></p>
+        </form></td>
+        <td><form action="#" th:action="@{/projects/deleteProject(id=${project.projectId})}"th:object="${project}" method="post">
+            <p><input type="submit" value="Delete" /></p>
+        </form></td>
         </form></td>
     </tr>
     </tbody>

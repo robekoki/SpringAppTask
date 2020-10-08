@@ -83,6 +83,9 @@ public class ProjectCrud {
     @PostMapping("/projects/updatedProject")
     public String projectUpdated(@ModelAttribute Project project, @RequestParam int id, Model model) {
         project.setProjectId(id);
+        if(project.getManager().getId() == 0) {
+            project.setManager(null);
+        }
         service.save(project);
         return "projectUpdated";
     }
