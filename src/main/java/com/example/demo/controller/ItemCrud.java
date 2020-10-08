@@ -77,7 +77,6 @@ public class ItemCrud {
 
     @PostMapping("/items/update")
     public String performUpdate(@ModelAttribute Item item, Model model) {
-        System.out.println(item);
         item.setId(tempItem.getId());
         service.saveItem(item);
         return "updated";

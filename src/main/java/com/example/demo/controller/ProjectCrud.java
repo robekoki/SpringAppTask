@@ -60,7 +60,6 @@ public class ProjectCrud {
         Optional<Project> optional = service.getById(project.getProjectId());
         if (optional.isPresent()) {
             model.addAttribute("project", optional.get());
-            //tempItem = optional.get();
             return "/showProject";
         } else {
             return "/noProjectFound";
@@ -73,9 +72,18 @@ public class ProjectCrud {
         return "projectDeleted";
     }
 
-    @GetMapping("/projects/updateProject")
-    public String updateProject(Model model) {
-
+    @PostMapping("/projects/updateProject")
+    public String updateProject(@RequestParam int id, Model model) {
+        Optional<Project> project = service.getById(id);
+        project.ifPresent(value -> model.addAttribute("project", value));
+        model.addAttribute("managers", service.getAvailableManagers());
         return "updateProject";
+    }
+
+    @PostMapping("/projects/updatedProject")
+    public String projectUpdated(@ModelAttribute Project project, @RequestParam int id, Model model) {
+        project.setProjectId(id);
+        service.save(project);
+        return "projectUpdated";
     }
 }
