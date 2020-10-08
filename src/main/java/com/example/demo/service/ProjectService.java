@@ -32,18 +32,8 @@ public class ProjectService {
                 .collect(Collectors.toList());
     }
 
-    public void save(Manager manager) {
-        managerRepo.save(manager);
-    }
-
     public List<Project> getAllProjects() {
         return (List<Project>) projectRepo.findAll();
-    }
-
-    public List<Manager> getAllManagers() {
-        List<Manager> list = (List<Manager>) managerRepo.findAll();
-        list.remove(0);
-        return list;
     }
 
     public Optional<Project> getById(int projectId) {

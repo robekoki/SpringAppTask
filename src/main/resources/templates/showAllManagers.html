@@ -23,6 +23,11 @@
         <td><span th:text="${manager.name}"> Name </span></td>
         <td><span th:text="${manager.surname}"> Surname </span></td>
         <td><span th:text="${manager.phoneNumber}"> Phone Number </span></td>
+        <td><form action="#" th:action="@{/projects/updateManager(id=${manager.id})}"th:object="${manager}" method="post">
+            <p><input type="submit" value="Update" /></p>
+        </form></td>
+        <td><form action="#" th:action="@{/projects/deleteManager(id=${manager.id})}"th:object="${manager}" method="post">
+            <p><input type="submit" value="Delete" /></p>
         </form></td>
     </tr>
     </tbody>

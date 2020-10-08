@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>item</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> ID </th>
+        <th> Name </th>
+        <th> Surname </th>
+        <th> Phone number </th>
+    </tr>
+    </thead>
+    <tbody>
+    <td><span th:text="${manager.id}"> Id </span></td>
+    <td><span th:text="${manager.name}"> Name </span></td>
+    <td><span th:text="${manager.surname}"> Surname </span></td>
+    <td><span th:text="${manager.phoneNumber}"> Phone Number </span></td>
+    <td><form action="#" th:action="@{/projects/updateManager(id=${manager.id})}"th:object="${manager}" method="post">
+        <p><input type="submit" value="Update" /></p>
+    </form></td>
+    <td><form action="#" th:action="@{/projects/deleteManager(id=${manager.id})}"th:object="${manager}" method="post">
+        <p><input type="submit" value="Delete" /></p>
+    </form></td>
+    </tbody>
+</table>
+<a href="/projects">Return</a>
+</body>
+</html>

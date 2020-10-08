@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Create Project</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Add project details</h1>
+<form action="#" th:action="@{/projects/updatedManager(id=${manager.id})}" th:object="${manager}" method="post">
+    <p>Name: <input type="text" required th:field="*{name}" /></p>
+    <p>Surname: <input type="text" required th:field="*{surname}" /></p>
+    <p>Phone number: <input type="text" required th:field="*{phoneNumber}" /></p>
+    <p><input type="submit" value="Save" /> <input type="reset" value="Reset" /></p>
+</form>
+<a href="/projects/showAllManagers"> To all managers</a>
+<a href="/projects">Return</a>
+</body>
+</html>
