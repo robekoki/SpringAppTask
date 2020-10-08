@@ -1,7 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Item;
-import com.example.demo.model.Manager;
 import com.example.demo.model.Project;
 import com.example.demo.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +34,7 @@ public class ProjectCrud {
     @PostMapping("/projects/newProject")
     public String projectSubmit(@ModelAttribute Project project, Model model) {
         model.addAttribute("project", project);
-        if(project.getManager().getId() == 0) {
+        if (project.getManager().getId() == 0) {
             project.setManager(null);
         }
         service.save(project);
@@ -83,7 +81,7 @@ public class ProjectCrud {
     @PostMapping("/projects/updatedProject")
     public String projectUpdated(@ModelAttribute Project project, @RequestParam int id, Model model) {
         project.setProjectId(id);
-        if(project.getManager().getId() == 0) {
+        if (project.getManager().getId() == 0) {
             project.setManager(null);
         }
         service.save(project);

@@ -3,10 +3,9 @@ package com.example.demo.service;
 import com.example.demo.model.Manager;
 import com.example.demo.model.Project;
 import com.example.demo.repository.ManagerRepository;
-import com.example.demo.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
+import com.example.demo.repository.ProjectRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,7 +20,7 @@ public class ProjectService {
     @Autowired
     ManagerRepository managerRepo;
 
-    public void save(Project project){
+    public void save(Project project) {
         projectRepo.save(project);
     }
 
@@ -47,8 +46,8 @@ public class ProjectService {
     }
 
     public void freeProject(int id) {
-       Project project = projectRepo.getByFreeKey(id);
-       project.setManager(null);
-       save(project);
+        Project project = projectRepo.getByFreeKey(id);
+        project.setManager(null);
+        save(project);
     }
 }

@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Manager;
-import com.example.demo.model.Project;
 import com.example.demo.service.ManagerService;
 import com.example.demo.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;

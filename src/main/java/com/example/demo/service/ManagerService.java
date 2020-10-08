@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Manager;
-import com.example.demo.model.Project;
 import com.example.demo.repository.ManagerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
