@@ -15,7 +15,6 @@ public class ManagerService {
     @Autowired
     ManagerRepository repo;
 
-
     public Optional<Manager> getById(int id) {
         return repo.findById(id);
     }
@@ -31,4 +30,5 @@ public class ManagerService {
     public void delete(int id) {
         repo.deleteById(id);
     }
+
 }

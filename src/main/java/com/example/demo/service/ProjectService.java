@@ -45,4 +45,10 @@ public class ProjectService {
         project.ifPresent(value -> value.setManager(null));
         projectRepo.deleteById(id);
     }
+
+    public void freeProject(int id) {
+       Project project = projectRepo.getByFreeKey(id);
+       project.setManager(null);
+       save(project);
+    }
 }

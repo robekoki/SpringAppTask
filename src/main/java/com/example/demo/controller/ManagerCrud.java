@@ -21,6 +21,9 @@ public class ManagerCrud {
     @Autowired
     ManagerService managerService;
 
+    @Autowired
+    ProjectService projectService;
+
     @GetMapping("/projects/newManager")
     public String createManager(Model model) {
         model.addAttribute("manager", new Manager());
@@ -61,6 +64,7 @@ public class ManagerCrud {
 
     @PostMapping("/projects/deleteManager")
     public String deleteManager(@RequestParam int id, Model model) {
+        projectService.freeProject(id);
         managerService.delete(id);
         return "managerDeleted";
     }
